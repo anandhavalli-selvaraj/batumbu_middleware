@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="https://directchannel.cimbniaga.co.id"
+xmlns:apachesoap="http://xml.apache.org/xml-soap"
+xmlns:impl="https://directchannel.cimbniaga.co.id"
+xmlns:intf="https://directchannel.cimbniaga.co.id"
+xmlns:tns1="java:prismagateway.service.HostCustomer" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!-- WSDL created by PrismaGateway -->
+<wsdl:types>
+<schema elementFormDefault="qualified" targetNamespace="https://directchannel.cimbniaga.co.id"
+xmlns="http://www.w3.org/2001/XMLSchema">
+<import namespace="java:prismagateway.service.HostCustomer"/>
+<element name="HostCustomer">
+<complexType>
+<sequence>
+<element name="input" type="tns1:Input"/>
+</sequence>
+</complexType>
+</element>
+<element name="HostCustomerResponse">
+<complexType>
+<sequence>
+<element name="output" type="tns1:Output"/>
+</sequence>
+</complexType>
+</element>
+</schema>
+<schema elementFormDefault="qualified" targetNamespace="java:prismagateway.service.HostCustomer"
+xmlns="http://www.w3.org/2001/XMLSchema">
+<complexType name="Input">
+<sequence>
+<element name="tokenAuth" type="xsd:string"/>
+<element name="txnData" type="xsd:string"/>
+<element name="serviceCode" type="xsd:string"/>
+<element name="corpID" type="xsd:string"/>
+<element name="requestID" type="xsd:string"/>
+<element name="txnRequestDateTime" type="xsd:string"/>
+</sequence>
+</complexType>
+<complexType name="Output">
+<sequence>
+<element name="bankReffNo" nillable="true" type="xsd:string"/>
+<element name="statusCode" nillable="true" type="xsd:string"/>
+<element name="statusMsg" nillable="true" type="xsd:string"/>
+<element name="txnResponseDateTime" nillable="true" type="xsd:string"/>
+<element name="txnData" nillable="true" type="xsd:string"/>
+</sequence>
+</complexType>
+</schema>
+</wsdl:types>
+<wsdl:message name="HostCustomerRequest">
+<wsdl:part element="impl:HostCustomer" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="HostCustomerResponse">
+<wsdl:part element="impl:HostCustomerResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:portType name="HostCustomer">
+<wsdl:operation name="HostCustomer">
+<wsdl:input message="impl:HostCustomerRequest" name="HostCustomerRequest"/>
+<wsdl:output message="impl:HostCustomerResponse" name="HostCustomerResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="HostCustomerSoapBinding" type="impl:HostCustomer">
+<wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="HostCustomer">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="HostCustomerRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="HostCustomerResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="HostCustomer">
+<wsdl:port binding="impl:HostCustomerSoapBinding" name="HostCustomer">
+<wsdlsoap:address
+location="https://directchannel.cimbniaga.co.id/PrismaGateway/services/HostCustomer"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

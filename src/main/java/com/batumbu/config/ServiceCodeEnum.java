@@ -1,0 +1,35 @@
+package com.batumbu.config;
+
+public enum ServiceCodeEnum {
+	
+	ACCOUNT_BALANCE("ACCOUNT_BALANCE"),
+	TRANSACTION_INQUIRY("TRANSACTION_INQUIRY"),
+	DOWNLOAD_VA_HISTORY("DOWNLOAD_VA_HISTORY"),
+	DEBIT_CREDIT_NOTIFICATION("DEBIT_CREDIT_NOTIFICATION"),
+	ACCOUNT_TRANSFER("ACCOUNT_TRANSFER"),
+	INTRA_COMPANY_TRANSFER ("INTRA_COMPANY_TRANSFER "),
+	REKENING_PONSEL("REKENING_PONSEL"),
+	ATM_TRANSFER("ATM_TRANSFER"),
+	SKN_TRANSFER("SKN_TRANSFER"),
+	RTGS_TRANSFER("RTGS_TRANSFER"),
+	REMITTANCE_TRANSFER("REMITTANCE_TRANSFER"),
+	BULK_MULTI_TRX("BULK_MULTI_TRX"),
+	BULK_MULTI_TRX_INQUIRY("BULK_MULTI_TRX_INQUIRY"),
+	MULTI_DEBIT_SKN("MULTI_DEBIT_SKN"),
+	MULTI_DEBIT_SKN_INQUIRY("MULTI_DEBIT_SKN_INQUIRY");
+	
+    private String serviceCode;
+	
+	private ServiceCodeEnum(String serviceCode)
+	{
+		this.setServiceCode(serviceCode);
+	}
+
+	public String getServiceCode() {
+		return serviceCode;
+	}
+
+	public void setServiceCode(String serviceCode) {
+		this.serviceCode = serviceCode;
+	}
+}
